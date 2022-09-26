@@ -1,6 +1,17 @@
+var inputBox = $("#search");
+
+//Functions
+
+function searchFood() {
+  if (inputBox != null) {
+    var inputBoxVal = inputBox.text();
+    searchNutrition(inputBoxVal);
+  }
+}
+
 // NutritionIX API
 
-function testAPI() {
+function searchNutrition() {
   var item = "apple"; //user input
   var apiUrl =
     "https://trackapi.nutritionix.com/v2/search/instant?query=" + item;
@@ -63,5 +74,3 @@ function testAPI() {
       alert("Unable to gather data.");
     });
 }
-
-testAPI();
