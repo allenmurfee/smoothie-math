@@ -1,11 +1,17 @@
 var inputBox = $("#search");
 var searchBtn = $("#searchBtn");
 var mixBtn = $("#mix");
+var foodNutrition = {
+  calories: "",
+  fiber: "",
+  protein: "",
+  carbs: "",
+};
 
 //Functions
 
 function searchFood(food) {
-  console.log(food)
+  console.log(food);
   if (inputBox != null) {
     searchNutrition(food);
   } else {
@@ -71,6 +77,11 @@ function getNutrients(food) {
     })
     .then(function (data) {
       console.log(data);
+      var calories = data.foods[0].nf_calories;
+      console.log(calories)
+      var fiber = data.foods[0].nf_dietary_fiber;
+      var protein = data.foods[0].nf_protein;
+      var carbs = data.foods[0].nf_total_carbohydrate;
     })
     .catch(function (error) {
       console.log(error);
@@ -140,11 +151,8 @@ function getNutrients(food) {
 //     });
 // }
 
-searchBtn.on("click", function() {
+searchBtn.on("click", function () {
   searchFood(inputBox.val());
 });
 
-mixBtn.on("click", function() {
-  
-});
-
+mixBtn.on("click", function () {});
