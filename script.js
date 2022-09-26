@@ -2,10 +2,11 @@ var inputBox = $("#search");
 var searchBtn = $("#searchBtn");
 var mixBtn = $("#mix");
 var foodNutrition = {
-  calories: "",
-  fiber: "",
-  protein: "",
-  carbs: "",
+  calories: [],
+  fiber: [],
+  protein: [],
+  carbs: [],
+  sugar: [],
 };
 
 //Functions
@@ -78,10 +79,17 @@ function getNutrients(food) {
     .then(function (data) {
       console.log(data);
       var calories = data.foods[0].nf_calories;
-      console.log(calories)
+      console.log(calories);
       var fiber = data.foods[0].nf_dietary_fiber;
       var protein = data.foods[0].nf_protein;
       var carbs = data.foods[0].nf_total_carbohydrate;
+      var sugar = data.foods[0].nf_sugars;
+      foodNutrition.calories.push(calories);
+      foodNutrition.fiber.push(fiber);
+      foodNutrition.protein.push(protein);
+      foodNutrition.carbs.push(carbs);
+      foodNutrition.sugar.push(sugar);
+      console.log(foodNutrition);
     })
     .catch(function (error) {
       console.log(error);
