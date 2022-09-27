@@ -96,19 +96,12 @@ function getNutrients(food) {
     });
 }
 
-// function calculate() {
-//   for (var i = 0; i < foodNutrition.calories.length; i++) {
-//     var calSum = 0;
-//     calSum += foodNutrition.calories[i];
-//     console.log(calSum);
-//   }
-// }
-
 searchBtn.on("click", function () {
   searchFood(inputBox.val());
+  inputBox.val("");
 });
 
-mixBtn.on("click", function() {
+mixBtn.on("click", function () {
   var calSum = 0;
   var fiberSum = 0;
   var proteinSum = 0;
@@ -116,28 +109,22 @@ mixBtn.on("click", function() {
   var sugarSum = 0;
   for (var i = 0; i < foodNutrition.calories.length; i++) {
     calSum += foodNutrition.calories[i];
-  };
+  }
   for (var i = 0; i < foodNutrition.fiber.length; i++) {
     fiberSum += foodNutrition.fiber[i];
-  };
+  }
   for (var i = 0; i < foodNutrition.protein.length; i++) {
     proteinSum += foodNutrition.protein[i];
-  };
+  }
   for (var i = 0; i < foodNutrition.carbs.length; i++) {
     carbSum += foodNutrition.carbs[i];
-  };
+  }
   for (var i = 0; i < foodNutrition.sugar.length; i++) {
     sugarSum += foodNutrition.sugar[i];
-
-    
-  // for (var i = 0; i < foodNutrition.calories.length; i++) {
-  //   var calSum = 0;
-  //   calSum += foodNutrition.calories[i];
-  //   console.log(calSum);
-}
-console.log(calSum);
-console.log(fiberSum);
-console.log(proteinSum);
-console.log(carbSum);
-console.log(sugarSum);
+  }
+  console.log(calSum);
+  console.log(fiberSum);
+  console.log(proteinSum);
+  console.log(carbSum);
+  console.log(sugarSum);
 });
