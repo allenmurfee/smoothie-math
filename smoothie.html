@@ -1,82 +1,101 @@
 <!DOCTYPE html>
 <!--GROUP PROJECT-->
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Smoothie Math</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
-    />
-  </head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+</head>
 
-  <body style="background-color: palevioletred">
+<body style="background-color: palevioletred">
     <section class="section hero">
-      <div class="container">
-        <h1 class="title" style="color: white">Welcome to Smoothie Math!</h1>
-        <p class="subtitle" style="color: white">
-          Type in the fruits you want to add to your
-          <strong style="color: peachpuff">Smoothie</strong>!
-        </p>
-        <input
-          class="input is-link"
-          type="text"
-          id="search"
-          placeholder="Enter your fruit..."
-        />
-        <button id="searchBtn" class="button is-link">Add to Smoothie</button>
+        <div class="container">
+            <h1 class="title" style="color: white">Welcome to Smoothie Math!</h1>
+            <p class="subtitle" style="color: white">
+                Type in the fruits you want to add to your
+                <strong style="color: peachpuff">Smoothie</strong>!
+            </p>
+            <input class="input is-link" type="text" id="search" placeholder="Enter your fruit..." />
+            <button id="searchBtn" class="button is-link">Add to Smoothie</button>
 
-        <div class="box">
-          Selected Fruits
-          <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul>
-        </div>
-
-        <!--Dropdown Menu-->
-        <div class="dropdown">
-          <!--make togglable-->
-          <div class="dropdown-trigger">
-            <button
-              class="button"
-              aria-haspopup="true"
-              aria-controls="dropdown-menu"
-            >
-              <span>Dropdown button</span>
-              <span class="icon is-small">
-                <i class="fas fa-angle-down" aria-hidden="true"></i>
-              </span>
-            </button>
-          </div>
-          <div class="dropdown-menu" id="dropdown-menu" role="menu">
-            <div class="dropdown-content">
-              <a href="#" class="dropdown-item"> Dropdown item </a>
-              <a class="dropdown-item"> Other dropdown item </a>
+            <div class="box">
+                Selected Fruits
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
             </div>
-          </div>
-        </div>
 
-        <div class="box">
-          Nutrition Facts
-          <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul>
-        </div>
+            <!--Dropdown Menu-->
+            <div class="dropdown">
+                <!--make togglable-->
+                <div class="dropdown-trigger">
+                    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                        <span>Dropdown button</span>
+                        <span class="icon is-small">
+                            <i class="fas fa-angle-down" aria-hidden="true"></i>
+                        </span>
+                    </button>
+                </div>
+                <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                    <div class="dropdown-content">
+                        <a href="#" class="dropdown-item"> Dropdown item </a>
+                        <a class="dropdown-item"> Other dropdown item </a>
+                    </div>
+                </div>
+            </div>
 
-        <button id="mix" class="button is-danger">Mix it!</button>
-      </div>
+            <div class="box">
+                Nutrition Facts
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+
+            <button id="mix" class="button is-danger">Mix it!</button>
+        </div>
     </section>
-    <script
-      src="https://code.jquery.com/jquery-3.6.1.min.js"
-      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
-      crossorigin="anonymous"
-    ></script>
+    <script>
+        src = "https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity = "sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+        crossorigin = "anonymous"
+            ></script>
     <script src="script.js"></script>
     <script src="BulmaJS-master/dist/bulma.js"></script>
-  </body>
+    <script>src </script>
+
+    <script>
+        let APIKEY = "oNyZ8U08g1Lyt6teq7Y8doc6hPi2u62T";
+        document.addEventListener("button is-danger", init);
+        function init() {
+            document.getElementById("mix").addEventListener("click", ev => {
+                ev.preventDefault();
+                let url = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=1&q=`;
+                let str = document.getElementById("mix")
+                console.log(url);
+                fetch(url)
+                    .then(response => response.json())
+                    .then(content => {
+                        ;
+                        let fig = document.createElement("figure");
+                        let img = document.createElement("img");
+                        img.src = content.data[0].images.downsized.url;
+
+                    })
+                    .catch(err => {
+                        console.error(err);
+                    });
+            });
+        }
+    </script>
+
+
+
+</body>
+
 </html>
