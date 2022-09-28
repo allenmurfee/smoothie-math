@@ -96,8 +96,13 @@ function getNutrients(food) {
     });
 }
 
+function addToList (food) {
+  $("#food-list").append("<li>" + food + "</li>")
+}
+
 searchBtn.on("click", function () {
   searchFood(inputBox.val());
+  addToList(inputBox.val());
   inputBox.val("");
 });
 
