@@ -81,7 +81,7 @@
                 fetch(url)
                     .then(response => response.json())
                     .then(content => {
-                        ;
+
                         let fig = document.createElement("figure");
                         let img = document.createElement("img");
                         img.src = content.data[0].images.downsized.url;
