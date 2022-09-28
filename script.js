@@ -96,8 +96,23 @@ function getNutrients(food) {
     });
 }
 
+function addToList(food) {
+  $("#food-list").append("<li>" + food + "</li>");
+}
+
+function displaySmoothie(calSum, fiberSum, proteinSum, carbSum, sugarSum) {
+  // var finalMix = JSON.stringify(foodNutrition);
+  // console.log(finalMix)
+  $("#final-nutrition").append("<li> Calories: " + calSum + "</li>");
+  $("#final-nutrition").append("<li> Fiber: " + fiberSum + "g</li>");
+  $("#final-nutrition").append("<li> Protein: " + proteinSum + "g</li>");
+  $("#final-nutrition").append("<li> Carbs: " + carbSum + "g</li>");
+  $("#final-nutrition").append("<li> Sugar: " + sugarSum + "g</li>");
+}
+
 searchBtn.on("click", function () {
   searchFood(inputBox.val());
+  addToList(inputBox.val());
   inputBox.val("");
 });
 
@@ -127,6 +142,8 @@ mixBtn.on("click", function () {
   console.log(proteinSum);
   console.log(carbSum);
   console.log(sugarSum);
+
+  displaySmoothie(calSum, fiberSum, proteinSum, carbSum, sugarSum);
 });
 
 //Dropdown NOT WORKING
