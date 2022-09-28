@@ -128,3 +128,26 @@ mixBtn.on("click", function () {
   console.log(carbSum);
   console.log(sugarSum);
 });
+
+//Dropdown NOT WORKING
+//var $dropdowns = getAll(".dropdown:not(.is-hoverable)");
+var $dropdowns = getAll(".dropdown");
+
+if ($dropdowns.length > 0) {
+  $dropdowns.forEach(function ($el) {
+    $el.addEventListener("click", function (event) {
+      event.stopPropagation();
+      $el.classList.toggle("is-active");
+    });
+  });
+
+  document.addEventListener("click", function (event) {
+    closeDropdowns();
+  });
+}
+
+function closeDropdowns() {
+  $dropdowns.forEach(function ($el) {
+    $el.classList.remove("is-active");
+  });
+}

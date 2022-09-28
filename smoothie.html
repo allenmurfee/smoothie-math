@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--GROUP PROJECT-->
 <html>
   <head>
     <meta charset="utf-8" />
@@ -10,12 +11,13 @@
     />
   </head>
 
-  <body>
-    <section class="section">
+  <body style="background-color: palevioletred">
+    <section class="section hero">
       <div class="container">
-        <h1 class="title">Welcome to Smoothie Math!</h1>
-        <p class="subtitle">
-          Type in the fruits you want to add to your <strong>Smoothie</strong>!
+        <h1 class="title" style="color: white">Welcome to Smoothie Math!</h1>
+        <p class="subtitle" style="color: white">
+          Type in the fruits you want to add to your
+          <strong style="color: peachpuff">Smoothie</strong>!
         </p>
         <input
           class="input is-link"
@@ -23,7 +25,8 @@
           id="search"
           placeholder="Enter your fruit..."
         />
-        <button id="searchBtn" class="button">Add to Smoothie</button>
+        <button id="searchBtn" class="button is-link">Add to Smoothie</button>
+
         <div class="box">
           Selected Fruits
           <ul>
@@ -32,6 +35,30 @@
             <li></li>
           </ul>
         </div>
+
+        <!--Dropdown Menu-->
+        <div class="dropdown">
+          <!--make togglable-->
+          <div class="dropdown-trigger">
+            <button
+              class="button"
+              aria-haspopup="true"
+              aria-controls="dropdown-menu"
+            >
+              <span>Dropdown button</span>
+              <span class="icon is-small">
+                <i class="fas fa-angle-down" aria-hidden="true"></i>
+              </span>
+            </button>
+          </div>
+          <div class="dropdown-menu" id="dropdown-menu" role="menu">
+            <div class="dropdown-content">
+              <a href="#" class="dropdown-item"> Dropdown item </a>
+              <a class="dropdown-item"> Other dropdown item </a>
+            </div>
+          </div>
+        </div>
+
         <div class="box">
           Nutrition Facts
           <ul>
@@ -41,7 +68,7 @@
           </ul>
         </div>
 
-        <button id="mix" class="button">Mix it!</button>
+        <button id="mix" class="button is-danger">Mix it!</button>
       </div>
     </section>
     <script
@@ -50,5 +77,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="script.js"></script>
+    <script src="BulmaJS-master/dist/bulma.js"></script>
   </body>
 </html>
