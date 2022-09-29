@@ -159,6 +159,8 @@ mixBtn.on("click", function () {
   console.log(sugarSum);
 
   displaySmoothie(calSum, fiberSum, proteinSum, carbSum, sugarSum);
+
+  init();
 });
 
 //var $dropdowns = getAll(".dropdown:not(.is-hoverable)");
@@ -181,4 +183,23 @@ function closeDropdowns() {
   $dropdowns.forEach(function ($el) {
     $el.classList.remove("is-active");
   });
+}
+
+
+function init() {
+  var url =
+    "https://api.giphy.com/v1/gifs/xTiQytOEqr2U33lYkg?api_key=" +
+    APIKEY
+
+  fetch(url)
+    .then(function (response) {
+      if (response.ok) {
+        return response.json();
+      } else {
+        console.log(response.statusText);
+      }
+    })
+    .then(function (data) {
+      console.log(data);
+    });
 }
