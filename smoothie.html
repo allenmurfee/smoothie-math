@@ -19,21 +19,6 @@
           Type in the fruits you want to add to your
           <strong style="color: peachpuff">Smoothie</strong>!
         </p>
-        <input
-          class="input is-link"
-          type="text"
-          id="search"
-          placeholder="Enter your fruit..."
-        />
-        <button id="searchBtn" class="button is-link">Add to Smoothie</button>
-
-        <div class="box">
-          Selected Fruits
-          <ul id="food-list">
-          </ul>
-        </div>
-
-        <!--Dropdown Menu-->
         <div class="dropdown">
           <!--make togglable-->
           <div class="dropdown-trigger">
@@ -42,23 +27,54 @@
               aria-haspopup="true"
               aria-controls="dropdown-menu"
             >
-              <span>Dropdown button</span>
+              <span>Click to pick fruit</span>
               <span class="icon is-small">
                 <i class="fas fa-angle-down" aria-hidden="true"></i>
               </span>
             </button>
           </div>
           <div class="dropdown-menu" id="dropdown-menu" role="menu">
-            <div class="dropdown-content">
-              <a href="#" class="dropdown-item"> Dropdown item </a>
-              <a class="dropdown-item"> Other dropdown item </a>
+            <div id="drop" class="dropdown-content">
+              <!-- <a href="#" class="dropdown-item"> Dropdown item </a> -->
+              <a href="#" class="dropdown-item"> Apple </a>
+              <a class="dropdown-item"> Avocado </a>
+              <a class="dropdown-item"> Banana </a>
+              <a class="dropdown-item"> Blackberry </a>
+              <a class="dropdown-item"> Blueberry </a>
+              <a class="dropdown-item"> Cantalope </a>
+              <a class="dropdown-item"> Cherry </a>
+              <a class="dropdown-item"> Cranberry </a>
+              <a class="dropdown-item"> Grape </a>
+              <a class="dropdown-item"> Honeydew Melon </a>
+              <a class="dropdown-item"> Kiwi </a>
+              <a class="dropdown-item"> Lemon </a>
+              <a class="dropdown-item"> Lime </a>
+              <a class="dropdown-item"> Mango </a>
+              <a class="dropdown-item"> Nectarine </a>
+              <a class="dropdown-item"> Orange </a>
+              <a class="dropdown-item"> Passion Fruits </a>
+              <a class="dropdown-item"> Peach </a>
+              <a class="dropdown-item"> Pear </a>
+              <a class="dropdown-item"> Pineapple </a>
+              <a class="dropdown-item"> Plum </a>
+              <a class="dropdown-item"> Pomegranate </a>
+              <a class="dropdown-item"> Rapberries </a>
+              <a class="dropdown-item"> Strawberries </a>
+              <a class="dropdown-item"> Tangerine </a>
+              <a class="dropdown-item"> Tomatoes </a>
+              <a class="dropdown-item"> Watermelon </a>
             </div>
           </div>
         </div>
 
         <div class="box">
+          Selected Fruits
+          <ul id="food-list"></ul>
+        </div>
+
+        <div class="box">
           Nutrition Facts
-          <ul id = "final-nutrition" ></ul>
+          <ul id="final-nutrition"></ul>
         </div>
 
         <button id="mix" class="button is-danger">Mix it!</button>
