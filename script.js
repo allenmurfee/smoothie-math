@@ -1,3 +1,4 @@
+//Variables
 var inputBox = $("#search");
 var searchBtn = $("#searchBtn");
 var mixBtn = $("#mix");
@@ -8,9 +9,11 @@ var foodNutrition = {
   carbs: [],
   sugar: [],
 };
+var dropdownTrigger = $(".dropdown-trigger");
+var dropdown = $(".dropdown");
+var drop = $("#drop");
 
 //Functions
-
 function searchFood(food) {
   console.log(food);
   if (inputBox != null) {
@@ -115,9 +118,15 @@ function displaySmoothie(calSum, fiberSum, proteinSum, carbSum, sugarSum) {
 //   inputBox.val("");
 // });
 
-var drop = $("#drop");
+//Click Events
+
+$(document).on("click", function (e) {
+  if (e.target.id != "targetSpan") {
+    dropdown.attr("class", "dropdown");
+  }
+});
+
 drop.on("click", function (e) {
-  console.log(e.target.text);
   searchFood(e.target.text);
   addToList(e.target.text);
 });
@@ -152,7 +161,6 @@ mixBtn.on("click", function () {
   displaySmoothie(calSum, fiberSum, proteinSum, carbSum, sugarSum);
 });
 
-//Dropdown NOT WORKING
 //var $dropdowns = getAll(".dropdown:not(.is-hoverable)");
 var $dropdowns = getAll(".dropdown");
 
