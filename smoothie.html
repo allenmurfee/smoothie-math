@@ -62,32 +62,12 @@
     </section>
 
 
-    <script>
-        let APIKEY = "oNyZ8U08g1Lyt6teq7Y8doc6hPi2u62T"
-        function init() {
-            document.getElementById("mix").addEventListener("click")
-            url = "https://api.giphy.com/v1/gifs/api_key=${APIKEY}gif_id=xTiQytOEqr2U33lYkg"
-
-            fetch(url)
-                .then(response => response.json())
-                .then(content => {
-                    console.log(content.data)
-                    console.log("META", content.meta)
-
-                }
-
-        }
-    </script>
-
-
-    <script>
-        src = "https://code.jquery.com/jquery-3.6.1.min.js"
+    <script src = "https://code.jquery.com/jquery-3.6.1.min.js"
         integrity = "sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
         crossorigin = "anonymous"
             ></script>
-    <script src="script.js"></script>
     <script src="BulmaJS-master/dist/bulma.js"></script>
-    <script>src </script>
+    <script src="script.js"></script>
 
 
 
