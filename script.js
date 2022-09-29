@@ -146,6 +146,11 @@ mixBtn.on("click", function () {
   displaySmoothie(calSum, fiberSum, proteinSum, carbSum, sugarSum);
 });
 
+
+
+
+
+
 //Dropdown NOT WORKING
 //var $dropdowns = getAll(".dropdown:not(.is-hoverable)");
 var $dropdowns = getAll(".dropdown");
