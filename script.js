@@ -8,6 +8,7 @@ var foodNutrition = {
   carbs: [],
   sugar: [],
 };
+let APIKEY = "oNyZ8U08g1Lyt6teq7Y8doc6hPi2u62T";
 
 //Functions
 
@@ -172,7 +173,6 @@ function closeDropdowns() {
 }
 
 //Giphy API
-let APIKEY = "oNyZ8U08g1Lyt6teq7Y8doc6hPi2u62T";
 function init() {
   console.log("test");
   url =
