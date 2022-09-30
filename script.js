@@ -1,7 +1,6 @@
 //Variables
-var inputBox = $("#search");
-var searchBtn = $("#searchBtn");
 var mixBtn = $("#mix");
+var clear = $("#clear");
 var foodNutrition = {
   calories: [],
   fiber: [],
@@ -182,6 +181,10 @@ mixBtn.on("click", function () {
 
   init();
 });
+
+clear.on("click", function() {
+  window.location.reload();
+})
 
 // function recent() {
 //   // var grab = localStorage.getItem("food");
