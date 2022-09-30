@@ -17,6 +17,8 @@ var APIKEY = "oNyZ8U08g1Lyt6teq7Y8doc6hPi2u62T";
 
 // NutritionIX API
 
+load();
+
 function searchNutrition(food) {
   fetch("https://trackapi.nutritionix.com/v2/search/instant?query=" + food, {
     headers: {
@@ -158,13 +160,43 @@ function displayGif(gif) {
   $("#gif").append(gif);
 }
 
+//Local Storage Load
+
+function load() {
+  var obj = JSON.parse(localStorage.getItem("foodNutrition"));
+  if (obj != null) {
+  var calSum = 0;
+  var fiberSum = 0;
+  var proteinSum = 0;
+  var carbSum = 0;
+  var sugarSum = 0;
+  for (var i = 0; i < obj.calories.length; i++) {
+    calSum += obj.calories[i];
+  }
+  for (var i = 0; i < obj.fiber.length; i++) {
+    fiberSum += obj.fiber[i];
+  }
+  for (var i = 0; i < obj.protein.length; i++) {
+    proteinSum += obj.protein[i];
+  }
+  for (var i = 0; i < obj.carbs.length; i++) {
+    carbSum += obj.carbs[i];
+  }
+  for (var i = 0; i < obj.sugar.length; i++) {
+    sugarSum += obj.sugar[i];
+  }
+  displaySmoothie(calSum, fiberSum, proteinSum, carbSum, sugarSum);
+
+  init();
+}}
 
 //Click Events
 
 mixBtn.on("click", add);
 
-clear.on("click", function() {
+clear.on("click", function () {
   window.location.reload();
+  localStorage.clear();
 });
 
 $(document).on("click", function (e) {
@@ -177,7 +209,6 @@ drop.on("click", function (e) {
   searchNutrition(e.target.text);
   addToList(e.target.text);
 });
-
 
 //Bulma
 //var $dropdowns = getAll(".dropdown:not(.is-hoverable)");
