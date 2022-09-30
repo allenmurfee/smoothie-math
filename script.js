@@ -186,8 +186,6 @@ function load() {
     sugarSum += obj.sugar[i];
   }
   displaySmoothie(calSum, fiberSum, proteinSum, carbSum, sugarSum);
-
-  init();
 }}
 
 //Click Events
