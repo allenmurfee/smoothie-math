@@ -15,8 +15,6 @@ var APIKEY = "oNyZ8U08g1Lyt6teq7Y8doc6hPi2u62T";
 
 //Functions
 
-recent();
-
 // NutritionIX API
 
 function searchNutrition(food) {
@@ -160,13 +158,14 @@ function displayGif(gif) {
   $("#gif").append(gif);
 }
 
-function recent() {
-  foodNutrition = JSON.parse(localStorage.getItem("foodNutrition"));
-  console.log(foodNutrition);
-  add(foodNutrition);
-}
 
 //Click Events
+
+mixBtn.on("click", add);
+
+clear.on("click", function() {
+  window.location.reload();
+});
 
 $(document).on("click", function (e) {
   if (e.target.id != "targetSpan") {
