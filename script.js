@@ -165,28 +165,29 @@ function displayGif(gif) {
 function load() {
   var obj = JSON.parse(localStorage.getItem("foodNutrition"));
   if (obj != null) {
-  var calSum = 0;
-  var fiberSum = 0;
-  var proteinSum = 0;
-  var carbSum = 0;
-  var sugarSum = 0;
-  for (var i = 0; i < obj.calories.length; i++) {
-    calSum += obj.calories[i];
+    var calSum = 0;
+    var fiberSum = 0;
+    var proteinSum = 0;
+    var carbSum = 0;
+    var sugarSum = 0;
+    for (var i = 0; i < obj.calories.length; i++) {
+      calSum += obj.calories[i];
+    }
+    for (var i = 0; i < obj.fiber.length; i++) {
+      fiberSum += obj.fiber[i];
+    }
+    for (var i = 0; i < obj.protein.length; i++) {
+      proteinSum += obj.protein[i];
+    }
+    for (var i = 0; i < obj.carbs.length; i++) {
+      carbSum += obj.carbs[i];
+    }
+    for (var i = 0; i < obj.sugar.length; i++) {
+      sugarSum += obj.sugar[i];
+    }
+    displaySmoothie(calSum, fiberSum, proteinSum, carbSum, sugarSum);
   }
-  for (var i = 0; i < obj.fiber.length; i++) {
-    fiberSum += obj.fiber[i];
-  }
-  for (var i = 0; i < obj.protein.length; i++) {
-    proteinSum += obj.protein[i];
-  }
-  for (var i = 0; i < obj.carbs.length; i++) {
-    carbSum += obj.carbs[i];
-  }
-  for (var i = 0; i < obj.sugar.length; i++) {
-    sugarSum += obj.sugar[i];
-  }
-  displaySmoothie(calSum, fiberSum, proteinSum, carbSum, sugarSum);
-}}
+}
 
 //Click Events
 
