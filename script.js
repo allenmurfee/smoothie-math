@@ -12,7 +12,7 @@ var dropdownTrigger = $(".dropdown-trigger");
 var dropdown = $(".dropdown");
 var drop = $("#drop");
 var APIKEY = "oNyZ8U08g1Lyt6teq7Y8doc6hPi2u62T";
-
+var allFoods = [];
 //Functions
 
 // NutritionIX API
@@ -88,10 +88,6 @@ function getNutrients(food) {
       foodNutrition.sugar.push(sugar);
       console.log(foodNutrition);
       localStorage.setItem("foodNutrition", JSON.stringify(foodNutrition));
-      console.log(
-        "this is when we parse",
-        JSON.parse(localStorage.getItem("foodNutrition"))
-      );
     })
     .catch(function (error) {
       console.log(error);
@@ -99,6 +95,10 @@ function getNutrients(food) {
 }
 
 function addToList(food) {
+  allFoods.push(food);
+  console.log(allFoods);
+  localStorage.setItem("allFoods", JSON.stringify(allFoods));
+  // console.log(JSON.parse(localStorage.getItem("allFoods")));
   $("#food-list").append("<li>" + food + "</li>");
 }
 
@@ -137,6 +137,45 @@ function displaySmoothie(calSum, fiberSum, proteinSum, carbSum, sugarSum) {
   $("#final-nutrition").append("<li> Sugar: " + sugarSum + "g</li>");
 }
 
+//Local Storage Load
+
+function load() {
+  var foods = JSON.parse(localStorage.getItem("allFoods"));
+  if (foods != null) {
+    for (var i = 0; i < foods.length; i++) {
+      $("#food-list").append("<li>" + foods[i] + "</li>");
+      searchNutrition(foods[i]);
+      add(foods[i]);
+    }
+  }
+  // var obj = JSON.parse(localStorage.getItem("foodNutrition"));
+  // if (obj != null) {
+  //   var calSum = 0;
+  //   var fiberSum = 0;
+  //   var proteinSum = 0;
+  //   var carbSum = 0;
+  //   var sugarSum = 0;
+  //   for (var i = 0; i < obj.calories.length; i++) {
+  //     calSum += obj.calories[i];
+  //   }
+  //   for (var i = 0; i < obj.fiber.length; i++) {
+  //     fiberSum += obj.fiber[i];
+  //   }
+  //   for (var i = 0; i < obj.protein.length; i++) {
+  //     proteinSum += obj.protein[i];
+  //   }
+  //   for (var i = 0; i < obj.carbs.length; i++) {
+  //     carbSum += obj.carbs[i];
+  //   }
+  //   for (var i = 0; i < obj.sugar.length; i++) {
+  //     sugarSum += obj.sugar[i];
+  //   }
+  //   displaySmoothie(calSum, fiberSum, proteinSum, carbSum, sugarSum);
+  // }
+}
+
+//Giphy API
+
 function init() {
   var url =
     "https://api.giphy.com/v1/gifs/xTiQytOEqr2U33lYkg?api_key=" + APIKEY;
@@ -158,35 +197,6 @@ function init() {
 
 function displayGif(gif) {
   $("#gif").append(gif);
-}
-
-//Local Storage Load
-
-function load() {
-  var obj = JSON.parse(localStorage.getItem("foodNutrition"));
-  if (obj != null) {
-    var calSum = 0;
-    var fiberSum = 0;
-    var proteinSum = 0;
-    var carbSum = 0;
-    var sugarSum = 0;
-    for (var i = 0; i < obj.calories.length; i++) {
-      calSum += obj.calories[i];
-    }
-    for (var i = 0; i < obj.fiber.length; i++) {
-      fiberSum += obj.fiber[i];
-    }
-    for (var i = 0; i < obj.protein.length; i++) {
-      proteinSum += obj.protein[i];
-    }
-    for (var i = 0; i < obj.carbs.length; i++) {
-      carbSum += obj.carbs[i];
-    }
-    for (var i = 0; i < obj.sugar.length; i++) {
-      sugarSum += obj.sugar[i];
-    }
-    displaySmoothie(calSum, fiberSum, proteinSum, carbSum, sugarSum);
-  }
 }
 
 //Click Events
