@@ -12,15 +12,15 @@ var foodNutrition = {
 var dropdownTrigger = $(".dropdown-trigger");
 var dropdown = $(".dropdown");
 var drop = $("#drop");
+var APIKEY = "oNyZ8U08g1Lyt6teq7Y8doc6hPi2u62T";
+var allFood = [];
 
 //Functions
+
+// recent();
+
 function searchFood(food) {
-  console.log(food);
-  if (inputBox != null) {
-    searchNutrition(food);
-  } else {
-    return;
-  }
+  searchNutrition(food);
 }
 
 // NutritionIX API
@@ -129,9 +129,11 @@ $(document).on("click", function (e) {
 drop.on("click", function (e) {
   searchFood(e.target.text);
   addToList(e.target.text);
+  allFood.push(e.target.text);
 });
 
 mixBtn.on("click", function () {
+  // localStorage.setItem("food", allFood);
   var calSum = 0;
   var fiberSum = 0;
   var proteinSum = 0;
@@ -152,17 +154,45 @@ mixBtn.on("click", function () {
   for (var i = 0; i < foodNutrition.sugar.length; i++) {
     sugarSum += foodNutrition.sugar[i];
   }
-  console.log(calSum);
-  console.log(fiberSum);
-  console.log(proteinSum);
-  console.log(carbSum);
-  console.log(sugarSum);
 
   displaySmoothie(calSum, fiberSum, proteinSum, carbSum, sugarSum);
 
   init();
 });
 
+// function recent() {
+//   // var grab = localStorage.getItem("food");
+//   console.log(grab);
+//   for (var i = 0; i < grab.length; i++) {
+//     $("#food-list").append("<li>" + grab[i] + "</li>");
+//   }
+// }
+
+function init() {
+  var url =
+    "https://api.giphy.com/v1/gifs/xTiQytOEqr2U33lYkg?api_key=" + APIKEY;
+
+  fetch(url)
+    .then(function (response) {
+      if (response.ok) {
+        return response.json();
+      } else {
+        console.log(response.statusText);
+      }
+    })
+    .then(function (data) {
+      console.log(data);
+      var gif = $("#gif").attr("src", data.data.images.fixed_height.url);
+      displayGif(gif);
+      
+    });
+}
+
+function displayGif(gif) {
+  $("#gif").append(gif);
+}
+
+//Bulma
 //var $dropdowns = getAll(".dropdown:not(.is-hoverable)");
 var $dropdowns = getAll(".dropdown");
 
@@ -183,23 +213,4 @@ function closeDropdowns() {
   $dropdowns.forEach(function ($el) {
     $el.classList.remove("is-active");
   });
-}
-
-
-function init() {
-  var url =
-    "https://api.giphy.com/v1/gifs/xTiQytOEqr2U33lYkg?api_key=" +
-    APIKEY
-
-  fetch(url)
-    .then(function (response) {
-      if (response.ok) {
-        return response.json();
-      } else {
-        console.log(response.statusText);
-      }
-    })
-    .then(function (data) {
-      console.log(data);
-    });
 }
