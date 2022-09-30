@@ -112,6 +112,29 @@ function displaySmoothie(calSum, fiberSum, proteinSum, carbSum, sugarSum) {
   $("#final-nutrition").append("<li> Sugar: " + sugarSum + "g</li>");
 }
 
+function init() {
+  var url =
+    "https://api.giphy.com/v1/gifs/xTiQytOEqr2U33lYkg?api_key=" + APIKEY;
+
+  fetch(url)
+    .then(function (response) {
+      if (response.ok) {
+        return response.json();
+      } else {
+        console.log(response.statusText);
+      }
+    })
+    .then(function (data) {
+      console.log(data);
+      var gif = $("#gif").attr("src", data.data.images.fixed_height.url);
+      displayGif(gif);
+    });
+}
+
+function displayGif(gif) {
+  $("#gif").append(gif);
+}
+
 // searchBtn.on("click", function () {
 //   searchFood(inputBox.val());
 //   addToList(inputBox.val());
@@ -167,30 +190,6 @@ mixBtn.on("click", function () {
 //     $("#food-list").append("<li>" + grab[i] + "</li>");
 //   }
 // }
-
-function init() {
-  var url =
-    "https://api.giphy.com/v1/gifs/xTiQytOEqr2U33lYkg?api_key=" + APIKEY;
-
-  fetch(url)
-    .then(function (response) {
-      if (response.ok) {
-        return response.json();
-      } else {
-        console.log(response.statusText);
-      }
-    })
-    .then(function (data) {
-      console.log(data);
-      var gif = $("#gif").attr("src", data.data.images.fixed_height.url);
-      displayGif(gif);
-      
-    });
-}
-
-function displayGif(gif) {
-  $("#gif").append(gif);
-}
 
 //Bulma
 //var $dropdowns = getAll(".dropdown:not(.is-hoverable)");
