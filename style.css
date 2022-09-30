@@ -2,3 +2,9 @@
     max-height: 10em;
     overflow: auto;
   }
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
