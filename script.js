@@ -1,5 +1,6 @@
 //Variables
 var mixBtn = $("#mix");
+var clear = $("#clear");
 var foodNutrition = {
   calories: [],
   fiber: [],
@@ -178,7 +179,6 @@ drop.on("click", function (e) {
   addToList(e.target.text);
 });
 
-mixBtn.on("click", add);
 
 //Bulma
 //var $dropdowns = getAll(".dropdown:not(.is-hoverable)");
