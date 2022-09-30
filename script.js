@@ -1,6 +1,4 @@
 //Variables
-var inputBox = $("#search");
-var searchBtn = $("#searchBtn");
 var mixBtn = $("#mix");
 var clear = $("#clear");
 var foodNutrition = {
