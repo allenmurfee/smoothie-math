@@ -12,28 +12,29 @@
     <link rel="stylesheet" href="style.css" />
   </head>
 
-  <body style="background-color: palevioletred">
+  <body style="background-color:#cbf3f0">
     <section class="section hero">
       <div class="container">
-        <h1 class="title" style="color: white">Welcome to Smoothie Math!</h1>
-        <p class="subtitle" style="color: white">
-          Type in the fruits you want to add to your
-          <strong style="color: peachpuff">Smoothie</strong>!
+        <h1 class="title center" style="color: #F29E4C">Welcome to Smoothie Math!</h1>
+        <p class="subtitle center" style="color: #F29E4C">
+          Select the fruits you want to add to your&nbsp;
+          <strong style="color: #F29E4C"> Smoothie &#127825</strong>
         </p>
 
         <div class="dropdown">
           <!--make togglable-->
           <div class="dropdown-trigger">
             <button
-              class="button"
+              class="button is-primary"
               aria-haspopup="true"
               aria-controls="dropdown-menu"
             >
-              <span id="targetSpan">Click to pick fruit</span>
+              <span id="targetSpan">Fruits</span>
               <span class="icon is-small">
                 <i class="fas fa-angle-down" aria-hidden="true"></i>
               </span>
             </button>
+            <p><br /></p>
           </div>
           <div class="dropdown-menu dropscroll" id="dropdown-menu" role="menu">
             <div id="drop" class="dropdown-content">
@@ -76,7 +77,7 @@
           <ul id="food-list"></ul>
         </div>
 
-        <div class="box">
+        <div class="box" style="background-color:papayawhip">
           Nutrition Facts
           <ul id="final-nutrition"></ul>
         </div>
@@ -94,4 +95,5 @@
     <script src="BulmaJS-master/dist/bulma.js"></script>
     <script src="script.js"></script>
   </body>
+  <footer></footer>
 </html>
