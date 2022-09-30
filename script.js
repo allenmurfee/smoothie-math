@@ -1,6 +1,4 @@
 //Variables
-var inputBox = $("#search");
-var searchBtn = $("#searchBtn");
 var mixBtn = $("#mix");
 var foodNutrition = {
   calories: [],
@@ -13,15 +11,10 @@ var dropdownTrigger = $(".dropdown-trigger");
 var dropdown = $(".dropdown");
 var drop = $("#drop");
 var APIKEY = "oNyZ8U08g1Lyt6teq7Y8doc6hPi2u62T";
-var allFood = [];
 
 //Functions
 
-// recent();
-
-function searchFood(food) {
-  searchNutrition(food);
-}
+recent();
 
 // NutritionIX API
 
@@ -93,6 +86,11 @@ function getNutrients(food) {
       foodNutrition.carbs.push(carbs);
       foodNutrition.sugar.push(sugar);
       console.log(foodNutrition);
+      localStorage.setItem("foodNutrition", JSON.stringify(foodNutrition));
+      console.log(
+        "this is when we parse",
+        JSON.parse(localStorage.getItem("foodNutrition"))
+      );
     })
     .catch(function (error) {
       console.log(error);
@@ -101,6 +99,32 @@ function getNutrients(food) {
 
 function addToList(food) {
   $("#food-list").append("<li>" + food + "</li>");
+}
+
+function add() {
+  var calSum = 0;
+  var fiberSum = 0;
+  var proteinSum = 0;
+  var carbSum = 0;
+  var sugarSum = 0;
+  for (var i = 0; i < foodNutrition.calories.length; i++) {
+    calSum += foodNutrition.calories[i];
+  }
+  for (var i = 0; i < foodNutrition.fiber.length; i++) {
+    fiberSum += foodNutrition.fiber[i];
+  }
+  for (var i = 0; i < foodNutrition.protein.length; i++) {
+    proteinSum += foodNutrition.protein[i];
+  }
+  for (var i = 0; i < foodNutrition.carbs.length; i++) {
+    carbSum += foodNutrition.carbs[i];
+  }
+  for (var i = 0; i < foodNutrition.sugar.length; i++) {
+    sugarSum += foodNutrition.sugar[i];
+  }
+  displaySmoothie(calSum, fiberSum, proteinSum, carbSum, sugarSum);
+
+  init();
 }
 
 function displaySmoothie(calSum, fiberSum, proteinSum, carbSum, sugarSum) {
@@ -125,7 +149,7 @@ function init() {
       }
     })
     .then(function (data) {
-      console.log(data);
+      // console.log(data);
       var gif = $("#gif").attr("src", data.data.images.fixed_height.url);
       displayGif(gif);
     });
@@ -135,11 +159,11 @@ function displayGif(gif) {
   $("#gif").append(gif);
 }
 
-// searchBtn.on("click", function () {
-//   searchFood(inputBox.val());
-//   addToList(inputBox.val());
-//   inputBox.val("");
-// });
+function recent() {
+  foodNutrition = JSON.parse(localStorage.getItem("foodNutrition"));
+  console.log(foodNutrition);
+  add(foodNutrition);
+}
 
 //Click Events
 
@@ -150,46 +174,11 @@ $(document).on("click", function (e) {
 });
 
 drop.on("click", function (e) {
-  searchFood(e.target.text);
+  searchNutrition(e.target.text);
   addToList(e.target.text);
-  allFood.push(e.target.text);
 });
 
-mixBtn.on("click", function () {
-  // localStorage.setItem("food", allFood);
-  var calSum = 0;
-  var fiberSum = 0;
-  var proteinSum = 0;
-  var carbSum = 0;
-  var sugarSum = 0;
-  for (var i = 0; i < foodNutrition.calories.length; i++) {
-    calSum += foodNutrition.calories[i];
-  }
-  for (var i = 0; i < foodNutrition.fiber.length; i++) {
-    fiberSum += foodNutrition.fiber[i];
-  }
-  for (var i = 0; i < foodNutrition.protein.length; i++) {
-    proteinSum += foodNutrition.protein[i];
-  }
-  for (var i = 0; i < foodNutrition.carbs.length; i++) {
-    carbSum += foodNutrition.carbs[i];
-  }
-  for (var i = 0; i < foodNutrition.sugar.length; i++) {
-    sugarSum += foodNutrition.sugar[i];
-  }
-
-  displaySmoothie(calSum, fiberSum, proteinSum, carbSum, sugarSum);
-
-  init();
-});
-
-// function recent() {
-//   // var grab = localStorage.getItem("food");
-//   console.log(grab);
-//   for (var i = 0; i < grab.length; i++) {
-//     $("#food-list").append("<li>" + grab[i] + "</li>");
-//   }
-// }
+mixBtn.on("click", add);
 
 //Bulma
 //var $dropdowns = getAll(".dropdown:not(.is-hoverable)");
