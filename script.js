@@ -13,6 +13,7 @@ var dropdown = $(".dropdown");
 var drop = $("#drop");
 var APIKEY = "oNyZ8U08g1Lyt6teq7Y8doc6hPi2u62T";
 var allFoods = [];
+
 //Functions
 
 // NutritionIX API
@@ -141,37 +142,42 @@ function displaySmoothie(calSum, fiberSum, proteinSum, carbSum, sugarSum) {
 
 function load() {
   var foods = JSON.parse(localStorage.getItem("allFoods"));
+  var nutrition = JSON.parse(localStorage.getItem("foodNutrition"));
+  if (nutrition != null) {
+    addNutrition(nutrition);
+  }
   if (foods != null) {
     for (var i = 0; i < foods.length; i++) {
       $("#food-list").append("<li>" + foods[i] + "</li>");
       searchNutrition(foods[i]);
-      add(foods[i]);
     }
   }
-  // var obj = JSON.parse(localStorage.getItem("foodNutrition"));
-  // if (obj != null) {
-  //   var calSum = 0;
-  //   var fiberSum = 0;
-  //   var proteinSum = 0;
-  //   var carbSum = 0;
-  //   var sugarSum = 0;
-  //   for (var i = 0; i < obj.calories.length; i++) {
-  //     calSum += obj.calories[i];
-  //   }
-  //   for (var i = 0; i < obj.fiber.length; i++) {
-  //     fiberSum += obj.fiber[i];
-  //   }
-  //   for (var i = 0; i < obj.protein.length; i++) {
-  //     proteinSum += obj.protein[i];
-  //   }
-  //   for (var i = 0; i < obj.carbs.length; i++) {
-  //     carbSum += obj.carbs[i];
-  //   }
-  //   for (var i = 0; i < obj.sugar.length; i++) {
-  //     sugarSum += obj.sugar[i];
-  //   }
-  //   displaySmoothie(calSum, fiberSum, proteinSum, carbSum, sugarSum);
-  // }
+
+  function addNutrition(nutrition) {
+    var calSum = 0;
+    var fiberSum = 0;
+    var proteinSum = 0;
+    var carbSum = 0;
+    var sugarSum = 0;
+    for (var i = 0; i < nutrition.calories.length; i++) {
+      calSum += nutrition.calories[i];
+    }
+    for (var i = 0; i < nutrition.fiber.length; i++) {
+      fiberSum += nutrition.fiber[i];
+    }
+    for (var i = 0; i < nutrition.protein.length; i++) {
+      proteinSum += nutrition.protein[i];
+    }
+    for (var i = 0; i < nutrition.carbs.length; i++) {
+      carbSum += nutrition.carbs[i];
+    }
+    for (var i = 0; i < nutrition.sugar.length; i++) {
+      sugarSum += nutrition.sugar[i];
+    }
+    displaySmoothie(calSum, fiberSum, proteinSum, carbSum, sugarSum);
+
+    init();
+  }
 }
 
 //Giphy API
