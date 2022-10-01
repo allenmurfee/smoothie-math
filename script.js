@@ -97,9 +97,7 @@ function getNutrients(food) {
 
 function addToList(food) {
   allFoods.push(food);
-  console.log(allFoods);
   localStorage.setItem("allFoods", JSON.stringify(allFoods));
-  // console.log(JSON.parse(localStorage.getItem("allFoods")));
   $("#food-list").append("<li>" + food + "</li>");
 }
 
@@ -148,7 +146,7 @@ function load() {
   }
   if (foods != null) {
     for (var i = 0; i < foods.length; i++) {
-      $("#food-list").append("<li>" + foods[i] + "</li>");
+      addToList(foods[i]);
       searchNutrition(foods[i]);
     }
   }
