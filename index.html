@@ -72,6 +72,24 @@
           
         </div>
 
+        <div class="dropdown is-hoverable">
+          <div class="dropdown-trigger">
+            <button class="button is-ghost" style="background-color:#9dc5e9;color:white" aria-haspopup="true" aria-controls="dropdown-menu4">
+              <span>Note</span>
+              <span class="icon is-small">
+                <i class="fas fa-angle-down" aria-hidden="true"></i>
+              </span>
+            </button>
+          </div>
+          <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+            <div class="dropdown-content">
+              <div class="dropdown-item"style="background-color:white;color:#9dc5e9" >
+                <p>Nutrition facts based on one serving per fruit.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="box" style="background-color:#9dc5e9">
           Selected Fruits
           <ul id="food-list"></ul>
@@ -81,11 +99,7 @@
           Nutrition Facts
           <ul id="final-nutrition"></ul>
         </div>
-        <article class="message is-primary">
-          <div class="message-body">
-            *Nutrition facts based on one serving per fruit
-          </div>
-        </article>
+        
 
         <button id="mix" class="button is-danger">Mix it!</button>
         <button id="clear" class="button is-danger">Clear</button>
