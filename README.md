@@ -36,6 +36,10 @@ Smoothie-Math is a nutrition tool that uses NutritionIX API's extensive food dat
 
 <!-- USAGE EXAMPLES -->
 ## How to  use
+
+<img src="AC13BF1F-03BE-4C5F-BF22-B0F414FBF8F7.jpeg"
+     alt="Smoothie Math homepage">
+     
 * To create your personalized smoothie, first select the "Fruits" button
 * Next make your choices from the list of fruit
 * Once you have selected your chosen fruit click "Mix it!"
