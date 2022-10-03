@@ -16,10 +16,10 @@ var allFoods = [];
 
 //Functions
 
-// NutritionIX API
-
+//Call local storage
 load();
 
+//NutritionIX API
 function searchNutrition(food) {
   fetch("https://trackapi.nutritionix.com/v2/search/instant?query=" + food, {
     headers: {
@@ -136,7 +136,7 @@ function displaySmoothie(calSum, fiberSum, proteinSum, carbSum, sugarSum) {
   $("#final-nutrition").append("<li> Sugar: " + sugarSum + "g</li>");
 }
 
-//Local Storage Load
+//Local Storage
 
 function load() {
   var foods = JSON.parse(localStorage.getItem("allFoods"));
@@ -150,32 +150,32 @@ function load() {
       searchNutrition(foods[i]);
     }
   }
+}
 
-  function addNutrition(nutrition) {
-    var calSum = 0;
-    var fiberSum = 0;
-    var proteinSum = 0;
-    var carbSum = 0;
-    var sugarSum = 0;
-    for (var i = 0; i < nutrition.calories.length; i++) {
-      calSum += nutrition.calories[i];
-    }
-    for (var i = 0; i < nutrition.fiber.length; i++) {
-      fiberSum += nutrition.fiber[i];
-    }
-    for (var i = 0; i < nutrition.protein.length; i++) {
-      proteinSum += nutrition.protein[i];
-    }
-    for (var i = 0; i < nutrition.carbs.length; i++) {
-      carbSum += nutrition.carbs[i];
-    }
-    for (var i = 0; i < nutrition.sugar.length; i++) {
-      sugarSum += nutrition.sugar[i];
-    }
-    displaySmoothie(calSum, fiberSum, proteinSum, carbSum, sugarSum);
-
-    init();
+function addNutrition(nutrition) {
+  var calSum = 0;
+  var fiberSum = 0;
+  var proteinSum = 0;
+  var carbSum = 0;
+  var sugarSum = 0;
+  for (var i = 0; i < nutrition.calories.length; i++) {
+    calSum += nutrition.calories[i];
   }
+  for (var i = 0; i < nutrition.fiber.length; i++) {
+    fiberSum += nutrition.fiber[i];
+  }
+  for (var i = 0; i < nutrition.protein.length; i++) {
+    proteinSum += nutrition.protein[i];
+  }
+  for (var i = 0; i < nutrition.carbs.length; i++) {
+    carbSum += nutrition.carbs[i];
+  }
+  for (var i = 0; i < nutrition.sugar.length; i++) {
+    sugarSum += nutrition.sugar[i];
+  }
+  displaySmoothie(calSum, fiberSum, proteinSum, carbSum, sugarSum);
+
+  init();
 }
 
 //Giphy API
