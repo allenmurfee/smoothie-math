@@ -40,13 +40,14 @@ Smoothie-Math is a nutrition tool that uses NutritionIX API's extensive food dat
 * Next make your choices from the list of fruit
 * Once you have selected your chosen fruit click "Mix it!"
 * You should now see the nutrition totals listed
-* If you ae interested in another smoothie or want to start over, click "Clear"
+* If you are interested in another smoothie or want to start over, click "Clear"
+* You can also refresh the page and your fruits/nutrition values will stay saved to the page
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- Installation -->
 ## Installation
-* There is no installation needed
+* There is no installation needed. Just visit https://allenmurfee.github.io/smoothie-math/ to start using Smoothie Math.  
 
 
 <!-- CONTRIBUTING -->
