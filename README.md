@@ -44,6 +44,20 @@ Smoothie-Math is a nutrition tool that uses NutritionIX API's extensive food dat
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- Installation -->
+## Installation
+* There is no installation needed
+
+
+<!-- CONTRIBUTING -->
+## Contributing
+
+* Allen Murfee
+* Bernie Migo
+* Jack Michie
+* Rory O'Donnell
+
+
 
 
 
