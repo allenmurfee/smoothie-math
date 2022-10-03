@@ -12,16 +12,16 @@
     <link rel="stylesheet" href="style.css" />
   </head>
 
-  <body style="background-color:#cbf3f0">
+  <body style="background-color:#e2f8f3">
     <section class="section hero">
       <div class="container">
-        <h1 class="title center" style="color: #F29E4C">Welcome to Smoothie Math!</h1>
-        <p class="subtitle center" style="color: #F29E4C">
+        <h1 class="title center is-1" style="color: #ff8757;background-color:#e2f8f3">Welcome to Smoothie Math!</h1>
+        <p class="subtitle center is-5" style="color: #ff8757">
           Select the fruits you want to add to your&nbsp;
-          <strong style="color: #F29E4C"> Smoothie &#127825</strong>
+          <strong style="color: #ff8757"> Smoothie &#127825</strong>
         </p>
 
-        <div class="dropdown">
+        <div class="dropdown has-addons">
           <!--make togglable-->
           <div class="dropdown-trigger">
             <button
@@ -29,7 +29,7 @@
               aria-haspopup="true"
               aria-controls="dropdown-menu"
             >
-              <span id="targetSpan">Fruits</span>
+              <span id="targetSpan" class="center">Fruits</span>
               <span class="icon is-small">
                 <i class="fas fa-angle-down" aria-hidden="true"></i>
               </span>
@@ -39,48 +39,54 @@
           <div class="dropdown-menu dropscroll" id="dropdown-menu" role="menu">
             <div id="drop" class="dropdown-content">
               <!-- <a href="#" class="dropdown-item"> Dropdown item </a> -->
-              <a href="#" class="dropdown-item"> Apple </a>
-              <a class="dropdown-item"> Avocado </a>
-              <a class="dropdown-item"> Banana </a>
-              <a class="dropdown-item"> Blackberry </a>
-              <a class="dropdown-item"> Blueberry </a>
-              <a class="dropdown-item"> Cantalope </a>
-              <a class="dropdown-item"> Cherry </a>
-              <a class="dropdown-item"> Cranberry </a>
-              <a class="dropdown-item"> Grape </a>
-              <a class="dropdown-item"> Honeydew Melon </a>
-              <a class="dropdown-item"> Kale </a>
-              <a class="dropdown-item"> Kiwi </a>
-              <a class="dropdown-item"> Lemon </a>
-              <a class="dropdown-item"> Lime </a>
-              <a class="dropdown-item"> Mango </a>
-              <a class="dropdown-item"> Nectarine </a>
-              <a class="dropdown-item"> Orange </a>
-              <a class="dropdown-item"> Passion Fruit </a>
-              <a class="dropdown-item"> Peach </a>
-              <a class="dropdown-item"> Pear </a>
-              <a class="dropdown-item"> Pineapple </a>
-              <a class="dropdown-item"> Plum </a>
-              <a class="dropdown-item"> Pomegranate </a>
-              <a class="dropdown-item"> Raspberries </a>
-              <a class="dropdown-item"> Spinach </a>
-              <a class="dropdown-item"> Strawberries </a>
-              <a class="dropdown-item"> Tangerine </a>
-              <a class="dropdown-item"> Tomatoes </a>
-              <a class="dropdown-item"> Watermelon </a>
+              <a href="#" class="dropdown-item"style="background-color:#F9C6C9"> Apple &#127822</a>
+              <a class="dropdown-item" style="background-color:#C9E4DE"> Avocado &#129361 </a>
+              <a class="dropdown-item" style="background-color:#FAEDCB"> Banana &#127820</a>
+              <a class="dropdown-item" style="background-color:#DBCDF0"> Blackberry &#9899</a>
+              <a class="dropdown-item" style="background-color:#C6DEF1"> Blueberry &#128309</a>
+              <a class="dropdown-item" style="background-color:#F7D9C4"> Cantalope &#127816</a>
+              <a class="dropdown-item" style="background-color:#F2C6DE"> Cherry &#127826</a>
+              <a class="dropdown-item" style="background-color:#F9C6C9"> Cranberry &#128308</a>
+              <a class="dropdown-item" style="background-color:#DBCDF0"> Grape &#127815</a>
+              <a class="dropdown-item" style="background-color:#FAEDCB"> Honeydew Melon &#127816</a>
+              <a class="dropdown-item" style="background-color:#C6DEF1"> Kale &#129367</a>
+              <a class="dropdown-item" style="background-color:#E2CFC4"> Kiwi &#129373</a>
+              <a class="dropdown-item" style="background-color:#FAEDCB"> Lemon &#127819</a>
+              <a class="dropdown-item" style="background-color:#C9E4DE"> Lime &#128154</a>
+              <a class="dropdown-item" style="background-color:#F7D9C4"> Mango &#128155</a>
+              <a class="dropdown-item" style="background-color:#F9C6C9"> Nectarine &#127825</a>
+              <a class="dropdown-item" style="background-color:#F7D9C4"> Orange &#127818</a>
+              <a class="dropdown-item" style="background-color:#F9C6C9"> Passion Fruit &#127865</a>
+              <a class="dropdown-item" style="background-color:#F7D9C4"> Peach &#127825</a>
+              <a class="dropdown-item" style="background-color:#C9E4DE"> Pear &#127824</a>
+              <a class="dropdown-item" style="background-color:#FAEDCB"> Pineapple &#127821</a>
+              <a class="dropdown-item" style="background-color:#DBCDF0"> Plum &#127814</a> 
+              <a class="dropdown-item" style="background-color:#F2C6DE"> Pomegranate &#127840</a>
+              <a class="dropdown-item" style="background-color:#F9C6C9"> Raspberries &#128151</a>
+              <a class="dropdown-item" style="background-color:#C9E4DE"> Spinach &#129367</a>
+              <a class="dropdown-item" style="background-color:#F2C6DE"> Strawberries &#127827</a>
+              <a class="dropdown-item" style="background-color:#F7D9C4"> Tangerine &#127818</a>
+              <a class="dropdown-item" style="background-color:#F2C6DE"> Tomatoes &#127813</a>
+              <a class="dropdown-item" style="background-color:#C9E4DE"> Watermelon &#127817</a>
             </div>
           </div>
+          
         </div>
 
-        <div class="box">
+        <div class="box" style="background-color:#9dc5e9">
           Selected Fruits
           <ul id="food-list"></ul>
         </div>
-
-        <div class="box" style="background-color:papayawhip">
+        
+        <div class="box" style="background-color:#a4aff3">
           Nutrition Facts
           <ul id="final-nutrition"></ul>
         </div>
+        <article class="message is-primary">
+          <div class="message-body">
+            *Nutrition facts based on one serving per fruit
+          </div>
+        </article>
 
         <button id="mix" class="button is-danger">Mix it!</button>
         <button id="clear" class="button is-danger">Clear</button>
@@ -96,5 +102,5 @@
     <script src="BulmaJS-master/dist/bulma.js"></script>
     <script src="script.js"></script>
   </body>
-  <footer></footer>
+  <footer class="footer"></footer>
 </html>
